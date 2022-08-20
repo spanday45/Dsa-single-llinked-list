@@ -2,7 +2,7 @@
 #include<string>
 #include<cstdlib>
 using namespace std;
-struct Account{
+struct Account{//struct type
     long long int Acc_no;
     string name;
     int bankbalance;
