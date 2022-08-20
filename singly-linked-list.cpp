@@ -27,8 +27,46 @@ struct node {
     }
     cout<<endl;
     }
-   
+    void insertatend(int data){
+        struct node *ptr=head;
+        struct node *newnode=create();
+        if(head==NULL){
+            cout<<"Linked list is empty ."<<endl;
+        }
+        else{
+            while(ptr->next!=NULL){
+                ptr=ptr->next;
+            }
+            ptr->next= newnode;
+            newnode->next=NULL;
+            newnode->info=data;
+        }
+    }
+    void insertatany(int position , int data){
+        struct node *temp=create(), *ptr=head;
+        if(ptr==NULL){
+            cout<<"singly linked list is empty !!"<<endl;
+        }
+        else if(ptr->next==NULL){
+            insertatend(data);
+        }
+        else{
+        while(position!=2){//it point to the n-1 node element 
+        ptr=ptr->next;
+        position--;
+        }
+        temp->info=data;
+    temp->next=ptr->next;
+    ptr->next=temp;    
+        }
+    }
 int main(){
     insertatbeg(5);
+    print();
+    insertatend(100);
+    print();
+    insertatany(2,75);
+    insertatany(2,50);
+    insertatany(2,25);
     print();
 }
